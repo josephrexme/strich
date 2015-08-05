@@ -1,0 +1,29 @@
+{
+  "name": "strich",
+  "version": "1.0.0",
+  "description": "strich.io website",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bl4ckdu5t/strich.git"
+  },
+  "keywords": [
+    "code"
+  ],
+  "author": "Joseph Rex",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bl4ckdu5t/strich/issues"
+  },
+  "homepage": "https://github.com/bl4ckdu5t/strich#readme",
+  "devDependencies": {
+    "autoprefixer-core": "^5.2.1",
+    "css-mqpacker": "^3.1.0",
+    "csswring": "^3.0.5",
+    "gulp": "^3.9.0",
+    "gulp-postcss": "^5.1.10"
+  }
+}
