@@ -1,11 +1,18 @@
+:root{
+	--bgColor: #FFFFFF;
+	--mainColor: #3366AA;
+	--rootFont: 62.5%;
+	--fontSize: 1.5rem;
+}
 a{ text-decoration: none; color: inherit; }
 html{
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizelegibility;
-  font-size: 62.5%;
+  font-size: var(--rootFont);
 }
 body{
 	margin: 0;
-  font-size: 1.5rem;
+  font-size: var(--fontSize);
   font-family: "pt-sans",sans-serif;
+  background: var(--bgColor);
 }

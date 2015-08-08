@@ -1,15 +1,17 @@
 /*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
+@custom-selector :--general html, button, input, select, textarea;
+
+html{ line-height: 1.4; box-sizing: border-box; }
+
 * { 
-  box-sizing: border-box;
+  box-sizing: inherit;
   &:focus{
     outline: none;
   }
 }
-html, button, input, select, textarea{
+:--general{
   color: #222;
 }
-
-html{ line-height: 1.4; }
 
 /* Remove image borders in IE */
 a img{ border: 0; }
