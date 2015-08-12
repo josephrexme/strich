@@ -1,11 +1,23 @@
-/* Defaults */
-$color-default: #000;
-$black: #000;
-$white: #fff;
-$red: #f00;
-$myblue: #36a;
-$reg_alpha: .2;
-$tinted_alpha: .8;
+:root{
+	--bgColor: #eee;
+	--black: #000;
+	--white: #fff;
+	--mainColor: #3366AA;
+	--myBlue: #36a;
+	--rootFont: 62.5%;
+	--fontSize: 1.5rem;
+}
+@custom-media --small-viewport (max-width: 30em);
+@custom-media --tablet-portrait (min-width: 768px);
+@custom-media --tablet-landscape (min-width: 1024px);
+@custom-media --tablet-wide (min-width: 1075px);
+@custom-media --iphone-portrait (min-width: 320px);
+@custom-media --iphone-landscape (min-width: 568px);
+@custom-media --android-landscape (min-width: 480px);
+@custom-media --laptop (min-width: 1170px);
+
+@custom-selector :--general html, button, input, select, textarea;
+
 /*  Color Variables */
 $color-hopbush: #c69;
 $color-bouquet: #b37399;
@@ -56,12 +68,3 @@ $stumbleupon: #EB4823;
 $yahoo: #7B0099;
 $blogger: #fb8f3d;
 $soundcloud: #ff3a00;
-
-/* Breakpoint Variables */
-$breakpoint-tablet-portrait: 768px;
-$breakpoint-tablet-landscape: 1024px;
-$breakpoint-iphone-portrait: 320px;
-$breakpoint-android-landscape: 480px;
-$breakpoint-iphone-landscape: 568px;
-$breakpoint-laptop: 1170px;
-$breakpoint-tablet-wide: 1075px;

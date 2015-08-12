@@ -3,5 +3,7 @@
 @import "partials/h5bp.css";
 @import "partials/animations.css";
 @import "partials/layout.css";
+@import "partials/namespaces.css";
 @import "partials/print.css";
-@import "partials/helpers.css";
+/* Utility also majorly consists of namespaced helper classes */
+@import "partials/utility.css";
