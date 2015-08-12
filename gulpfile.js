@@ -18,7 +18,6 @@ var cssnext = require('gulp-cssnext');
 var mqpacker = require('css-mqpacker');
 var cssnano = require('cssnano');
 var sourcemaps = require('gulp-sourcemaps');
-var pixrem = require('pixrem')
 
 gulp.task('css', function(){
   var processors = [
