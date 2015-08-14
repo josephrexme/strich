@@ -6,6 +6,11 @@
 	--myBlue: #36a;
 	--rootFont: 62.5%;
 	--fontSize: 1.5rem;
+	--gradientBg: linear-gradient(-105deg, #63BDC6, #5D7BC1 40%, #9753AA);
+	--menuColor: #6C487C;/* #EB7138 */
+	--menuHover: color(#6C487C lightness(80%)); /* #FFCBB3 */
+	--containerWidth: 1100px;
+	--deepPurple: #443346;
 }
 @custom-media --small-viewport (max-width: 30em);
 @custom-media --tablet-portrait (min-width: 768px);

@@ -10,3 +10,92 @@ body{
   font-family: "pt-sans",sans-serif;
   background: var(--bgColor);
 }
+.header{
+  position: relative;
+  background: var(--gradientBg);
+  height: 600px;
+  text-align: center;
+}
+
+.hamburger {
+  width: 25px;
+  height: 2px;
+  background: white;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -12.5px;
+  margin-top: -1.5px;
+  transition: transform 200ms;
+  &-1{
+    transform: translate3d(0, -8px, 0);
+    .c-menu-open:checked + .c-menu-open-button &{
+      transform: translate3d(0, 0, 0) rotate(45deg);
+    }
+  }
+  &-2{
+    transform: translate3d(0, 0, 0);
+    .c-menu-open:checked + .c-menu-open-button &{
+      transform: translate3d(0, 0, 0) scale(0.1, 1);
+    }
+  }
+  &-3{
+    transform: translate3d(0, 8px, 0);
+    .c-menu-open:checked + .c-menu-open-button &{
+      transform: translate3d(0, 0, 0) rotate(-45deg);
+    }
+  }
+}
+.footer{
+  background: #835286;
+  padding: 20px 10px;
+  font-size: 2rem;
+  color: #4E3550;
+  text-align: center;
+  @media(--android-landscape){
+    text-align: left;
+  }
+  &-text{
+    display: block;
+    @media(--android-landscape){
+      float: right;
+    }
+  }
+  &-link{
+    color: #B980DA;
+    &:hover{
+      color: #5F3875;
+    }
+  }
+}
+.section{
+  position: relative;
+  height: 500px;
+  padding: 40px 20px 20px;
+  &-title{
+    font-size: 3.5rem;
+    font-family: "fire-sans-2", sans-serif;
+  }
+  &-portfolio{
+    background: var(--deepPurple);
+    color: #eee;
+  }
+}
+.divider{
+  position: absolute;
+  bottom: -22px;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 50px;
+  height: 50px;
+  transform: rotate(45deg);
+  &-skillsets{
+    background: #eee;
+  }
+  &-portfolio{
+    background: var(--deepPurple);
+  }
+}

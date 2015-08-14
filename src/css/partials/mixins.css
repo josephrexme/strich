@@ -16,7 +16,7 @@
 
  Compatibility untested
 */
-@define-mixin clearfixable{
+@define-mixin clearfixable $x{
   &:after, &:before{
     content: " ";
     display: table;
