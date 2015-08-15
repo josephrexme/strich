@@ -7,8 +7,23 @@ html{
 body{
 	margin: 0;
   font-size: var(--fontSize);
-  font-family: "pt-sans",sans-serif;
+  font-family: var(--fontOne),sans-serif;
   background: var(--bgColor);
+}
+.container{
+  display: none;
+  overflow-y: hidden;
+  .no-js &{
+    display: block;
+  }
+}
+.loader{
+  height: 100vh;
+  background: var(--menuColor);
+  padding: 10%;
+  .no-js &{
+    display: none;
+  }
 }
 .header{
   position: relative;
@@ -51,14 +66,14 @@ body{
   background: #835286;
   padding: 20px 10px;
   font-size: 2rem;
-  color: #4E3550;
+  color: var(--footerText);
   text-align: center;
   @media(--android-landscape){
     text-align: left;
   }
   &-text{
     display: block;
-    @media(--android-landscape){
+    @media(--iphone-landscape){
       float: right;
     }
   }
@@ -71,11 +86,26 @@ body{
 }
 .section{
   position: relative;
-  height: 500px;
-  padding: 40px 20px 20px;
+  min-height: 500px;
+  padding: 40px 20px 30px;
+  &-title, &-description{
+    font-family: var(--fontTwo), sans-serif;
+    margin: 10px 0;
+  }
   &-title{
     font-size: 3.5rem;
-    font-family: "fire-sans-2", sans-serif;
+  }
+  &-description{
+    font-size: 3rem;
+    font-weight: 300;
+  }
+  &-skillsets{
+    &--article{
+      padding: 30px 20px;
+      a{
+        color: #888;
+      }
+    }
   }
   &-portfolio{
     background: var(--deepPurple);
@@ -99,3 +129,56 @@ body{
     background: var(--deepPurple);
   }
 }
+@media(--tablet-landscape){
+  .grid-6{
+    float: left;
+    width: calc(50% - 10px);
+    &:last-child{
+      margin-left: 10px;
+    }
+  }
+}
+
+.waypoint{
+  visibility: hidden;
+  .no-js &{
+    visibility: visible;
+  }
+}
+
+.svg-wrap {
+  position: absolute;
+  top: 480px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  margin-left: -8px;
+  color: #fff;
+  text-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+}
+.svg-wrap p {
+  position: absolute;
+  max-width: 200px;
+  top: 43%;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  pointer-events: none; 
+}
+.svg-graphic {
+  margin: 10px auto;
+  position: relative;
+  display: block;
+  z-index: 0;
+}
+svg polygon:hover {
+  opacity: 1;
+}
+
+.hexagon1{ fill: var(--color-one); }
+.hexagon2{ fill: var(--color-two); }
+.hexagon3{ fill: var(--color-three); }

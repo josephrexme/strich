@@ -15,6 +15,7 @@
   &-pad20{ padding: 20px; }
   &-topmag10{ margin-top: 10px; }
   &-topmag20{ margin-top: 20px; }
+  &-topmag50{ margin-top: 50px; }
   &-middle-block{
     display: block;
     margin: 0 auto;
