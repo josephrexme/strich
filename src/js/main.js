@@ -7,8 +7,12 @@ ready(function(){
 	var waypoint = new Waypoint({
 	  element: document.querySelector('.waypoint'),
 	  handler: function() {
-	    this.element.classList.add('bounceInLeft');
-	    this.element.style.visibility = 'visible';
+	  	var one = document.getElementById('animation1');
+	  	var two = document.getElementById('animation2');
+	    one.classList.add('bounceInLeft');
+	    two.classList.add('bounceInRight');
+	    one.style.visibility = 'visible';
+	    two.style.visibility = 'visible';
 	  },
 	  offset: '100%'
 	});

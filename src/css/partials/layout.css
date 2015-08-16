@@ -87,7 +87,9 @@ body{
 .section{
   position: relative;
   min-height: 500px;
-  padding: 40px 20px 30px;
+  &:not(.section-contact){
+    padding: 40px 20px 30px;
+  }
   &-title, &-description{
     font-family: var(--fontTwo), sans-serif;
     margin: 10px 0;
@@ -110,6 +112,12 @@ body{
   &-portfolio{
     background: var(--deepPurple);
     color: #eee;
+  }
+  &-contact{
+    padding: 40px 0 30px;
+    overflow: hidden;
+    transition: all 0.3s ease-out;
+    perspective: 700px;
   }
 }
 .divider{
@@ -182,3 +190,135 @@ svg polygon:hover {
 .hexagon1{ fill: var(--color-one); }
 .hexagon2{ fill: var(--color-two); }
 .hexagon3{ fill: var(--color-three); }
+
+
+.honeycomb {
+  position: relative;
+  text-align: center;
+  height: 280px;
+  width: 110%;
+  transform: rotateX(45deg) rotateY(0deg);
+  transform-style: preserve-3d;
+  transform-origin: center 65%;
+  //overflow: hidden;
+}
+.honeycomb .column {
+  display: block;
+  float: left;
+  width: 62px;
+}
+.honeycomb .column:nth-child(odd) {
+  margin-top: 36px;
+}
+.honeycomb .hex {
+  display: block;
+  position: relative;
+  float: left;
+  margin: 0;
+  height: 72px;
+  width: 62px;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+  opacity: 0.5;
+}
+.honeycomb .hex:hover {
+  opacity: 1;
+  -ms-transform: translateZ(20px);
+  -webkit-transform: translateZ(20px);
+  transform: translateZ(20px);
+  -webkit-transition-duration: 200ms;
+  transition-duration: 200ms;
+}
+.honeycomb .hex:hover .content {
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+  -ms-transform: rotateX(-90deg) translateZ(-40px) translateY(-50px);
+  -webkit-transform: rotateX(-90deg) translateZ(-40px) translateY(-50px);
+  transform: rotateX(-90deg) translateZ(-40px) translateY(-50px);
+}
+.honeycomb .hex .wrapper {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+.honeycomb .hex .wrapper .color-1 {
+  background: #555;
+}
+.honeycomb .hex .wrapper .color-1:before {
+  border-right-color: #555;
+}
+.honeycomb .hex .wrapper .color-1:after {
+  border-left-color: #555;
+}
+.honeycomb .hex .content {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: -80px;
+  text-align: center;
+  width: 200px;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  -moz-transition: all 0.3s ease-out 0.1s;
+  -o-transition: all 0.3s ease-out 0.1s;
+  -webkit-transition: all 0.3s ease-out;
+  -webkit-transition-delay: 0.1s;
+  -webkit-transition: all 0.3s ease-out 0.1s;
+          transition: all 0.3s ease-out 0.1s;
+  -ms-transform: rotateX(-90deg) translateZ(-40px) translateY(-40px);
+  -webkit-transform: rotateX(-90deg) translateZ(-40px) translateY(-40px);
+  transform: rotateX(-90deg) translateZ(-40px) translateY(-40px);
+  pointer-events: none;
+  -webkit-font-smoothing: antialiased;
+}
+.honeycomb .hex .content strong {
+  display: block;
+  font: 600 26px/1.1 verdana,sans-serif;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-shadow: -1px -1px 2px rgba(0, 0, 0, 0.8);
+}
+.container .honeycomb .hex .content small {
+  display: block;
+  font: 15px/1.1 verdana,sans-serif;
+}
+
+.hexagon {
+  display: block;
+  position: absolute;
+  width: 36px;
+  height: 62px;
+  background-color: #ffffff;
+}
+.hexagon:before, .hexagon:after {
+  content: "";
+  position: relative;
+  float: left;
+  border-top: 31px solid transparent;
+  border-bottom: 31px solid transparent;
+}
+.hexagon:before {
+  border-right: 18px solid #ffffff;
+  left: -18px;
+}
+.hexagon:after {
+  border-left: 18px solid #ffffff;
+  right: -18px;
+}
+.icon{
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+}
