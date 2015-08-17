@@ -10,6 +10,12 @@ body{
   font-family: var(--fontOne),sans-serif;
   background: var(--bgColor);
 }
+.email{
+  margin: 0;
+  text-align: center;
+  color: #888;
+}
+.email::after{ content: 'joseph -- at -- strich.io'; }
 .container{
   display: none;
   overflow-y: hidden;
@@ -177,11 +183,15 @@ body{
   text-transform: uppercase;
   pointer-events: none; 
 }
-.svg-graphic {
+.svg-graphic, .svg-profile {
   margin: 10px auto;
   position: relative;
   display: block;
   z-index: 0;
+}
+.svg-profile{
+  width: 200px;
+  height: 230px;
 }
 svg polygon:hover {
   opacity: 1;
@@ -194,13 +204,13 @@ svg polygon:hover {
 
 .honeycomb {
   position: relative;
+  bottom: -40px;
   text-align: center;
   height: 280px;
   width: 110%;
   transform: rotateX(45deg) rotateY(0deg);
   transform-style: preserve-3d;
   transform-origin: center 65%;
-  //overflow: hidden;
 }
 .honeycomb .column {
   display: block;
@@ -220,65 +230,150 @@ svg polygon:hover {
   color: #fff;
   cursor: pointer;
   text-decoration: none;
-  -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
-  opacity: 0.5;
+  opacity: 0.7;
+  &:hover{
+    opacity: 1;
+    transform: translateZ(20px);
+    transition-duration: 200ms;
+  }
+  .wrapper{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+  .content{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -80px;
+    text-align: center;
+    width: 200px;
+    padding: 15px 0;
+    opacity: 1;
+    transition-delay: 0.1s;
+    transition: all 0.3s ease-out 0.1s;
+    pointer-events: none;
+    .icon{
+      color: var(--white);
+      font-size: 2.5rem;
+    }
+  }
 }
-.honeycomb .hex:hover {
-  opacity: 1;
-  -ms-transform: translateZ(20px);
-  -webkit-transform: translateZ(20px);
-  transform: translateZ(20px);
-  -webkit-transition-duration: 200ms;
-  transition-duration: 200ms;
+.honeycomb .hexes-1 .content{
+  padding-right: 10px;
 }
-.honeycomb .hex:hover .content {
-  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
-  opacity: 1;
-  -ms-transform: rotateX(-90deg) translateZ(-40px) translateY(-50px);
-  -webkit-transform: rotateX(-90deg) translateZ(-40px) translateY(-50px);
-  transform: rotateX(-90deg) translateZ(-40px) translateY(-50px);
+.honeycomb .color-0{
+  background: var(--black);
+  &::before{
+    border-right-color: var(--black);
+  }
+  &::after{
+    border-left-color: var(--black);
+  }
 }
-.honeycomb .hex .wrapper {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-}
-.honeycomb .hex .wrapper .color-1 {
+.honeycomb .color-1 {
   background: #555;
+  &::before{
+    border-right-color: #555;
+  }
+  &::after{
+    border-left-color: #555;
+  }
 }
-.honeycomb .hex .wrapper .color-1:before {
-  border-right-color: #555;
+.honeycomb .color-2{
+  background: $facebook;
+  &::before{
+    border-right-color: $facebook;
+  }
+  &::after{
+    border-left-color: $facebook;
+  }
 }
-.honeycomb .hex .wrapper .color-1:after {
-  border-left-color: #555;
+.honeycomb .color-3{
+  background: $twitter;
+  &::before{
+    border-right-color: $twitter;
+  }
+  &::after{
+    border-left-color: $twitter;
+  }
 }
-.honeycomb .hex .content {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: -80px;
-  text-align: center;
-  width: 200px;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
-  -moz-transition: all 0.3s ease-out 0.1s;
-  -o-transition: all 0.3s ease-out 0.1s;
-  -webkit-transition: all 0.3s ease-out;
-  -webkit-transition-delay: 0.1s;
-  -webkit-transition: all 0.3s ease-out 0.1s;
-          transition: all 0.3s ease-out 0.1s;
-  -ms-transform: rotateX(-90deg) translateZ(-40px) translateY(-40px);
-  -webkit-transform: rotateX(-90deg) translateZ(-40px) translateY(-40px);
-  transform: rotateX(-90deg) translateZ(-40px) translateY(-40px);
-  pointer-events: none;
-  -webkit-font-smoothing: antialiased;
+.honeycomb .color-4{
+  background: $googleplus;
+  &::before{
+    border-right-color: $googleplus;
+  }
+  &::after{
+    border-left-color: $googleplus;
+  }
+}
+.honeycomb .color-5{
+  background: $instagram;
+  &::before{
+    border-right-color: $instagram;
+  }
+  &::after{
+    border-left-color: $instagram;
+  }
+}
+.honeycomb .color-6{
+  background: $dribbble;
+  &::before{
+    border-right-color: $dribbble;
+  }
+  &::after{
+    border-left-color: $dribbble;
+  }
+}
+.honeycomb .color-7{
+  background: $pinterest;
+  &::before{
+    border-right-color: $pinterest;
+  }
+  &::after{
+    border-left-color: $pinterest;
+  }
+}
+.honeycomb .color-8{
+  background: $deviantart;
+  &::before{
+    border-right-color: $deviantart;
+  }
+  &::after{
+    border-left-color: $deviantart;
+  }
+}
+.honeycomb .color-9{
+  background: $vimeo;
+  &::before{
+    border-right-color: $vimeo;
+  }
+  &::after{
+    border-left-color: $vimeo;
+  }
+}
+.honeycomb .color-10{
+  background: $linkedin;
+  &::before{
+    border-right-color: $linkedin;
+  }
+  &::after{
+    border-left-color: $linkedin;
+  }
+}
+.honeycomb .color-11{
+  background: $foursquare;
+  &::before{
+    border-right-color: $foursquare;
+  }
+  &::after{
+    border-left-color: $foursquare;
+  }
 }
 .honeycomb .hex .content strong {
   display: block;
@@ -288,9 +383,8 @@ svg polygon:hover {
   white-space: nowrap;
   text-shadow: -1px -1px 2px rgba(0, 0, 0, 0.8);
 }
-.container .honeycomb .hex .content small {
-  display: block;
-  font: 15px/1.1 verdana,sans-serif;
+.honeycomb .hex .content small {
+  display: none;
 }
 
 .hexagon {
@@ -321,4 +415,9 @@ svg polygon:hover {
   width: 1em;
   height: 1em;
   fill: currentColor;
+}
+.skillsets{
+  width: 200px;
+  height: 300px;
+  background: var(--deepPurple);
 }
