@@ -16,6 +16,11 @@ ready(function(){
 	  },
 	  offset: '100%'
 	});
+	var simple = document.querySelector('.js_simple');
+
+  lory(simple, {
+      infinite: 1
+  });
 });
 /* Scroll to Hashbanged links */
 (function(){

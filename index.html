@@ -91,6 +91,26 @@
   <section class="section section-portfolio">
     <h2 class="section-title u-txtcenter" id="portfolio">Works done</h2>
     <p class="section-description u-txtcenter">Good work ain't cheap, cheap work ain't good</p>
+    <!-- Flickity HTML init -->
+    <div class="slider js_simple simple">
+      <div class="frame js_frame">
+        <ul class="slides js_slides">
+          <li class="js_slide"><p class="u-pad10">1</p></li>
+          <li class="js_slide"><p class="u-pad10">2</p></li>
+          <li class="js_slide"><p class="u-pad10">3</p></li>
+          <li class="js_slide"><p class="u-pad10">4</p></li>
+          <li class="js_slide"><p class="u-pad10">5</p></li>
+          <li class="js_slide"><p class="u-pad10">6</p></li>
+        </ul>
+      </div>
+      <span class="js_prev prev">
+        <svg class="icon icon-angle-left slider--nav"><use xlink:href="#icon-angle-left"></use></svg>
+      </span>
+
+      <span class="js_next next">
+        <svg class="icon icon-angle-right slider--nav"><use xlink:href="#icon-angle-right"></use></svg>
+      </span>
+    </div>
     <div class="divider divider-portfolio"></div>
   </section>
   <section class="section section-contact">
@@ -115,7 +135,6 @@
           </div>
           <span class="content">
             <svg class="icon icon-facebook"><use xlink:href="#icon-facebook"></use></svg>
-            <small>joerex101</small>
           </span>
         </a>
         <a class="hex">
@@ -261,12 +280,12 @@
             <svg class="icon icon-vimeo"><use xlink:href="#icon-vimeo"></use></svg>
           </span>
         </a>
-        <a class="hex" href="https://delicious.com/joerex101">
+        <a class="hex" href="https://www.linkedin.com/in/joerex101">
           <div class="wrapper">
-            <div class="hexagon color-2"></div>
+            <div class="hexagon color-10"></div>
           </div>
           <span class="content">
-            <svg class="icon icon-delicious"><use xlink:href="#icon-delicious"></use></svg>
+            <svg class="icon icon-linkedin2"><use xlink:href="#icon-linkedin2"></use></svg>
           </span>
         </a>
         <a class="hex">
@@ -310,12 +329,12 @@
           <span class="content">
           </span>
         </a>
-        <a class="hex" href="https://www.linkedin.com/in/joerex101">
+        <a class="hex" href="https://delicious.com/joerex101">
           <div class="wrapper">
-            <div class="hexagon color-10"></div>
+            <div class="hexagon color-2"></div>
           </div>
           <span class="content">
-            <svg class="icon icon-linkedin2"><use xlink:href="#icon-linkedin2"></use></svg>
+            <svg class="icon icon-delicious"><use xlink:href="#icon-delicious"></use></svg>
           </span>
         </a>
         <a class="hex" href="https://foursquare.com/joerex101">
@@ -710,10 +729,10 @@
     </div>
 
   </section>
-  <footer class="footer">
+  <footer class="footer u-clearfix">
     <div class="o-container">
+      <span class="footer-text">Made with &hearts; by <a href="http://josephrex.me" class="footer-link">Joseph Rex</a></span>
       <img src="http://placehold.it/80x80" class="footer-image" alt="Logo">
-      <span class="footer-text u-topmag20">Made with &hearts; by <a href="http://josephrex.me" class="footer-link">Joseph Rex</a></span>
     </div>
   </footer>
 </div>
@@ -725,7 +744,6 @@
     c.style.display = 'block';
   };
   var url = 'dist/images/svgdefs.svg';
-  console.log(url);
   var c=new XMLHttpRequest(); c.open('GET', url, false); c.setRequestHeader('Content-Type', 'text/xml'); c.send();
   document.body.insertBefore(c.responseXML.firstChild, document.body.firstChild);
   /* GA */

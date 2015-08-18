@@ -4,7 +4,7 @@
 @import "partials/animations.css";
 @import "partials/layout.css";
 @import "partials/namespaces.css";
+@import "partials/animate.css";
 /* Utility also majorly consists of namespaced helper classes */
 @import "partials/utility.css";
-@import "partials/animate.css";
 @import "partials/print.css";
