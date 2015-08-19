@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
     uglify = require('gulp-uglify'),
+    imagemin = require('gulp-imagemin'),
     concat = require('gulp-concat'),
     notify = require('gulp-notify'),
     cache = require('gulp-cache'),
@@ -55,6 +56,14 @@ gulp.task('scripts', function(){
     .pipe(sourcemaps.write('../maps'))
     .pipe(gulp.dest('dist/js'))
     .pipe(reload({stream:true}));
+});
+
+// Images
+gulp.task('images', function(){
+  return gulp.src('./src/images/**/*')
+    .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
+    .pipe(gulp.dest('dist/images'))
+    .pipe(notify({ message: 'Images task complete' }));
 });
 
 // Watch

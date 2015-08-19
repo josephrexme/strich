@@ -99,7 +99,6 @@ body{
 }
 .section{
   position: relative;
-  min-height: 500px;
   &:not(.section-contact){
     padding: 40px 20px 30px;
   }
@@ -453,22 +452,34 @@ svg polygon:hover {
   @media(width >= 950px){
     width: 105%;
   }
-  height: 500px;
-  background: var(--color-one);
+  background: rgba(0,0,0, 0);
   font-size: 5rem;
   text-align: center;
+  h3{
+    font-weight: 400;
+    font-size: 2rem;
+  }
+  img{
+    width: 200px;
+    @media(--android-landscape){
+      width: 400px;
+    }
+    @media(--tablet-portrait){
+      width: 600px;
+    }
+  }
 }
 .slider--nav{
   fill: #bbb;
   width: 60px;
   height: 60px;
 }
-.slides li:nth-of-type(odd){
-  background: var(--color-two);
-}
 .prev, .next{
   position: absolute;
-  top: 50%;
+  top: 40%;
+  @media(--tablet-portrait){
+    top: 50%;
+  }
   display: block;
   cursor: pointer;
 }
