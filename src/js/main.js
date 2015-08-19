@@ -4,11 +4,12 @@ function ready(cb) {
 		: cb();
 }
 ready(function(){
-	var waypoint = new Waypoint({
+	/*======= Waypoints http://imakewebthings.com/waypoints/ ============= */
+	var waypointRow1 = new Waypoint({
 	  element: document.querySelector('.waypoint'),
 	  handler: function() {
-	  	var one = document.getElementById('animation1');
-	  	var two = document.getElementById('animation2');
+	  	var one = document.getElementById('animation1'),
+	  	two = document.getElementById('animation2');
 	    one.classList.add('bounceInLeft');
 	    two.classList.add('bounceInRight');
 	    one.style.visibility = 'visible';
@@ -16,8 +17,41 @@ ready(function(){
 	  },
 	  offset: '100%'
 	});
+	var waypointRow2 = new Waypoint({
+		element: document.querySelector('.waypoint2'),
+		handler: function(){
+			var one = document.getElementById('animation3'),
+			two = document.getElementById('portfolio'),
+			three = document.getElementById('animation4');
+	    one.classList.add('zoomIn');
+	    two.classList.add('rubberBand');
+	    three.classList.add('tada');
+	    one.style.visibility = 'visible';
+	    two.style.visibility = 'visible';
+	    three.style.visibility = 'visible';
+		},
+		offset: '100%'
+	});
+	var waypointRow3 = new Waypoint({
+		element: document.querySelector('.waypoint3'),
+		handler: function(){
+			var one = document.getElementById('contact'),
+			two = document.getElementById('animation5'),
+			three = document.getElementById('animation6'),
+			four = document.getElementById('animation7');
+			one.classList.add('lightSpeedIn');
+			two.classList.add('rollIn');
+			three.classList.add('flipInY');
+			four.classList.add('fadeInUp');
+			one.style.visibility = 'visible';
+	    two.style.visibility = 'visible';
+	    three.style.visibility = 'visible';
+	    four.style.visibility = 'visible';
+		},
+		offset: '100%'
+	});
+	/*====== Lory Slider http://meandmax.github.io/lory/ ======*/
 	var simple = document.querySelector('.js_simple');
-
   lory(simple, {
       infinite: 1
   });

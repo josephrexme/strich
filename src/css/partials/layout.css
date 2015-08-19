@@ -162,7 +162,7 @@ body{
 /* =======================
    Waypoint
    ====================== */
-.waypoint{
+.waypoint, .waypoint2, .waypoint3{
   visibility: hidden;
   .no-js &{
     visibility: visible;
@@ -431,13 +431,12 @@ svg polygon:hover {
 ==========================*/
  .frame {
   position: relative;
-  z-index: 4;
   font-size: 0;
   line-height: 0;
   overflow: hidden;
   white-space: nowrap;
   width: 90%;
-  margin: 0 auto;
+  margin: 10px auto;
 }
 
 .slides {
@@ -478,4 +477,11 @@ svg polygon:hover {
 }
 .next{
   right: 0;
+}
+/*======= Temporary Logo =============*/
+.logo{
+  display: inline-block;
+  margin: 150px 0 10px;
+  color: var(--white);
+  font-size: 3.5rem;
 }
