@@ -75,7 +75,7 @@ body{
   }
 }
 .footer{
-  background: #835286;
+  background: var(--footerBg);
   padding: 20px 10px;
   font-size: 2rem;
   color: var(--footerText);
@@ -91,9 +91,9 @@ body{
     }
   }
   &-link{
-    color: #B980DA;
+    color: var(--footerLink);
     &:hover{
-      color: #5F3875;
+      color: var(--footerLinkHover);
     }
   }
 }

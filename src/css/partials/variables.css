@@ -14,7 +14,10 @@
 	--hexnodeHover: #BD1B5C;
 	--containerWidth: 1100px;
 	--deepPurple: #443346;
-	--footerText: #4E3550;
+	--footerBg: #684A69;
+	--footerText: #B99ABB;
+	--footerLink: #B980DA;
+	--footerLinkHover: color(#B980DA blackness(30%));
 	--fontOne: "tenby-four";
 	--fontTwo: "fira-sans-2";
 }
