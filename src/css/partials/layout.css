@@ -116,6 +116,7 @@ body{
   &-skillsets{
     &--article{
       padding: 30px 20px;
+      line-height: 1.5;
       a{
         color: #888;
       }
@@ -124,6 +125,9 @@ body{
   &-portfolio{
     background: var(--deepPurple);
     color: #eee;
+    &::selection{
+      background: rgba(0,0,0, 0);
+    }
   }
   &-contact{
     padding: 40px 0 30px;
@@ -421,9 +425,108 @@ svg polygon:hover {
   fill: currentColor;
 }
 .skillsets{
-  width: 200px;
-  height: 300px;
+  position: relative;
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+  @media(--tablet-landscape){
+    margin-top: 60px;
+  }
+}
+.skillsets--node{
+  position: absolute;
+  width: 70px;
+  height: 45px;
   background: var(--deepPurple);
+  padding: 5px 0;
+  text-align: center;
+  &::before{
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-bottom: 15px solid var(--deepPurple);
+    border-left: 35px solid transparent;
+    border-right: 35px solid transparent;
+  }
+  svg{
+    width: 2em;
+    font-size: 3.5rem;
+    fill: #ddd;
+  }
+}
+.skillsets--node::after{
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-top: 15px solid var(--deepPurple);
+  border-left: 35px solid transparent;
+  border-right: 35px solid transparent;
+}
+.node-1{
+  position: absolute;
+  top: 20px;
+}
+.node-2{
+  position: absolute;
+  top: 20px;
+  left: 75px;
+}
+.node-3{
+  position: absolute;
+  top: 85px;
+  left: 38px;
+}
+.node-4{
+  position: absolute;
+  top: 85px;
+  left: 115px;
+}
+.node-5{
+  position: absolute;
+  top: 150px;
+  left: 150px;
+}
+.node-6{
+  position: absolute;
+  top: 150px;
+  left: 225px;
+}
+.node-7{
+  position: absolute;
+  top: 215px;
+  left: 115px;
+}
+.node-8{
+  position: absolute;
+  top: 215px;
+  left: 190px;
+}
+.node-9{
+  position: absolute;
+  top: 85px;
+  left: 260px;
+}
+.node-10{
+  position: absolute;
+  top: 85px;
+  left: 335px;
+}
+.node-11{
+  position: absolute;
+  top: 20px;
+  left: 297px;
+}
+.node-9,.node-10,.node-11{
+  display: none;
+  @media (--android-landscape){
+    display: block;
+  }
 }
 /*========================
  Lory library for carousel

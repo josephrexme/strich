@@ -15,7 +15,7 @@ ready(function(){
 	    one.style.visibility = 'visible';
 	    two.style.visibility = 'visible';
 	  },
-	  offset: '100%'
+	  offset: '70%'
 	});
 	var waypointRow2 = new Waypoint({
 		element: document.querySelector('.waypoint2'),
@@ -30,7 +30,7 @@ ready(function(){
 	    two.style.visibility = 'visible';
 	    three.style.visibility = 'visible';
 		},
-		offset: '100%'
+		offset: '70%'
 	});
 	var waypointRow3 = new Waypoint({
 		element: document.querySelector('.waypoint3'),

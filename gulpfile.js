@@ -2,6 +2,9 @@ var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
     uglify = require('gulp-uglify'),
     imagemin = require('gulp-imagemin'),
+    imageResize = require('gulp-image-resize'),
+    parallel = require('concurrent-transform'),
+    os = require('os'),
     concat = require('gulp-concat'),
     notify = require('gulp-notify'),
     cache = require('gulp-cache'),
@@ -61,6 +64,9 @@ gulp.task('scripts', function(){
 // Images
 gulp.task('images', function(){
   return gulp.src('./src/images/**/*')
+    .pipe(parallel(
+      imageResize({ width: 600 })
+    ))
     .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
     .pipe(gulp.dest('dist/images'))
     .pipe(notify({ message: 'Images task complete' }));
