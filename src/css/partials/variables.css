@@ -11,6 +11,7 @@
 	--gradientBg: linear-gradient(-105deg, #63BDC6, #5D7BC1 40%, #9753AA);
 	--menuColor: #6C487C;
 	--menuHover: color(#6C487C lightness(80%));
+	--hexnodeHover: #BD1B5C;
 	--containerWidth: 1100px;
 	--deepPurple: #443346;
 	--footerText: #4E3550;

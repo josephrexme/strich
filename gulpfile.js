@@ -5,6 +5,7 @@ var gulp = require('gulp'),
     imageResize = require('gulp-image-resize'),
     parallel = require('concurrent-transform'),
     os = require('os'),
+    htmlmin = require('gulp-htmlmin'),
     concat = require('gulp-concat'),
     notify = require('gulp-notify'),
     cache = require('gulp-cache'),
@@ -72,14 +73,21 @@ gulp.task('images', function(){
     .pipe(notify({ message: 'Images task complete' }));
 });
 
+// HTML
+gulp.task('html', function(){
+  return gulp.src('src/*.html')
+    .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(gulp.dest('./'))
+});
+
 // Watch
 gulp.task('watch', function(){
   gulp.watch('./src/**/*.css', ['css', browserSync.reload]);
   
-  gulp.watch(['./src/**/*.js', 'main.js'], ['scripts', browserSync.reload]);
+  gulp.watch('./src/**/*.js', ['scripts', browserSync.reload]);
 
-  gulp.watch('*.html', browserSync.reload);
+  gulp.watch(['*.html','./src/*.html'], ['html', browserSync.reload]);
 });
 
 
-gulp.task('default', ['css', 'browser-sync', 'scripts', 'watch']);
+gulp.task('default', ['css', 'browser-sync', 'html', 'scripts', 'watch']);

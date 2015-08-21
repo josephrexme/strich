@@ -440,6 +440,7 @@ svg polygon:hover {
   background: var(--deepPurple);
   padding: 5px 0;
   text-align: center;
+  color: var(--white);
   &::before{
     content: '';
     position: absolute;
@@ -456,6 +457,11 @@ svg polygon:hover {
     font-size: 3.5rem;
     fill: #ddd;
   }
+  span{
+    font-size: 1.5rem;
+    padding-top: 5px;
+    display: none;
+  }
 }
 .skillsets--node::after{
   content: '';
@@ -467,6 +473,21 @@ svg polygon:hover {
   border-top: 15px solid var(--deepPurple);
   border-left: 35px solid transparent;
   border-right: 35px solid transparent;
+}
+.skillsets--node:hover{
+  background: var(--hexnodeHover);
+}
+.skillsets--node:hover::before{
+  border-bottom-color: var(--hexnodeHover);
+}
+.skillsets--node:hover::after{
+  border-top-color: var(--hexnodeHover);
+}
+.skillsets--node:hover span{
+  display: block;
+}
+.skillsets--node:hover svg{
+  display: none;
 }
 .node-1{
   position: absolute;
