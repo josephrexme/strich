@@ -62,12 +62,12 @@ var speed = 500;
 var moving_frequency = 15; // Affects performance !
 var links = document.getElementsByTagName('a');
 var href;
-for(var i=0; i<links.length; i++){   
-	href = (links[i].attributes.href === undefined) ? null : links[i].attributes.href.nodeValue.toString();
+for(var i=0; i<links.length; i++){
+	href = (links[i].getAttributeNode('href') === undefined) ? null : links[i].getAttribute('href');
 	if(href !== null && href.length > 1 && href.substr(0, 1) == '#'){
 	  links[i].onclick = function(){
 	    var element;
-	    var href = this.attributes.href.nodeValue.toString();
+	    var href = this.getAttribute('href');
 	    if(element = document.getElementById(href.substr(1))){
         var hop_count = speed/moving_frequency
         var getScrollTopDocumentAtBegin = getScrollTopDocument();
