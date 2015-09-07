@@ -39,10 +39,11 @@ body{
   background: var(--gradientBg);
   height: 600px;
   text-align: center;
+  overflow: hidden;
 }
 
 /*=============================
- Gooey Hamburger menu 
+ Gooey Hamburger menu
  ==============================*/
 .hamburger {
   width: 25px;
@@ -195,7 +196,7 @@ body{
   text-align: center;
   font-size: 1.8rem;
   text-transform: uppercase;
-  pointer-events: none; 
+  pointer-events: none;
 }
 .svg-graphic, .svg-profile {
   margin: 10px auto;
@@ -441,6 +442,7 @@ svg polygon:hover {
   padding: 5px 0;
   text-align: center;
   color: var(--white);
+  cursor: default;
   &::before{
     content: '';
     position: absolute;
@@ -616,7 +618,19 @@ svg polygon:hover {
 /*======= Temporary Logo =============*/
 .logo{
   display: inline-block;
-  margin: 150px 0 10px;
+  margin: 100px 0 10px;
   color: var(--white);
   font-size: 3.5rem;
+}
+.avatar{
+  display: block;
+  position: relative;
+  bottom: -80px;
+  width: 300px;
+  @media(--iphone-landscape){
+    position: static;
+    bottom: auto;
+    width: 400px;
+  }
+  margin: 0 auto;
 }
