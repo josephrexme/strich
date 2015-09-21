@@ -37,9 +37,12 @@ body{
 .header{
   position: relative;
   background: var(--gradientBg);
-  height: 600px;
+  height: 450px;
   text-align: center;
   overflow: hidden;
+  @media(--iphone-landscape){
+    height: 600px;
+  }
 }
 
 /*=============================
@@ -97,6 +100,9 @@ body{
       color: var(--footerLinkHover);
     }
   }
+  &-image{
+    width: 60px;
+  }
 }
 .section{
   position: relative;
@@ -135,6 +141,13 @@ body{
     overflow: hidden;
     transition: all 0.3s ease-out;
     perspective: 700px;
+  }
+}
+svg.logo{
+  fill: #fff;
+  width: 300px;
+  @media(--iphone-landscape){
+    margin: 1.5em 0 1em;
   }
 }
 .divider{
@@ -177,19 +190,26 @@ body{
   =========================== */
 .svg-wrap {
   position: absolute;
-  top: 480px;
+  top: 360px;
   left: 0;
   right: 0;
   margin: 0 auto;
   margin-left: -8px;
   color: #fff;
   text-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+  transform: scale(.8);
+}
+@media(--iphone-landscape){
+  .svg-wrap{
+    top: 480px;
+    transform: none;
+  }
 }
 .svg-wrap p {
   position: absolute;
   max-width: 200px;
-  top: 43%;
-  left: 0;
+  top: 35%;
+  left: -10px;
   right: 0;
   z-index: 10;
   margin: 0 auto;
@@ -197,6 +217,10 @@ body{
   font-size: 1.8rem;
   text-transform: uppercase;
   pointer-events: none;
+}
+.svg-wrap p svg{
+  width: 60px;
+  fill: #732D77;
 }
 .svg-graphic, .svg-profile {
   margin: 10px auto;
@@ -427,7 +451,8 @@ svg polygon:hover {
 }
 .skillsets{
   position: relative;
-  width: 100%;
+  width: 415px;
+  margin: 0 auto;
   height: 350px;
   overflow: hidden;
   @media(--tablet-landscape){
@@ -615,21 +640,10 @@ svg polygon:hover {
 .next{
   right: 0;
 }
-/*======= Temporary Logo =============*/
-.logo{
-  display: inline-block;
-  margin: 100px 0 10px;
-  color: var(--white);
-  font-size: 3.5rem;
-}
 .avatar{
   display: block;
-  position: relative;
-  bottom: -80px;
   width: 300px;
   @media(--iphone-landscape){
-    position: static;
-    bottom: auto;
     width: 400px;
   }
   margin: 0 auto;
