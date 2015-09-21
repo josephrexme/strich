@@ -648,3 +648,8 @@ svg polygon:hover {
   }
   margin: 0 auto;
 }
+.link{
+  &--stealth.link--stealth{
+    color: #222;
+  }
+}
