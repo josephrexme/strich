@@ -145,7 +145,7 @@ body{
 }
 svg.logo{
   fill: #fff;
-  width: 300px;
+  width: 280px;
   @media(--iphone-landscape){
     margin: 1.5em 0 1em;
   }
