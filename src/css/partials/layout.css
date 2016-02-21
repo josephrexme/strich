@@ -102,6 +102,9 @@ body{
   }
   &-image{
     width: 60px;
+    stroke: #b99abb;
+    stroke-width: 4;
+    fill: none;
   }
 }
 .section{
@@ -143,11 +146,20 @@ body{
     perspective: 700px;
   }
 }
-svg.logo{
-  fill: #fff;
-  width: 280px;
+.logo{
+  fill: none;
+  stroke-width: 4;
+  stroke-miterlimit: 3;
+  stroke: #fff;
+  width: 80px;
   @media(--iphone-landscape){
-    margin: 1.5em 0 1em;
+    margin: 2px 0;
+  }
+  &--text{
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: #fff;
   }
 }
 .divider{
@@ -219,8 +231,10 @@ svg.logo{
   pointer-events: none;
 }
 .svg-wrap p svg{
-  width: 60px;
-  fill: #732D77;
+  width: 50px;
+  fill: none;
+  stroke: #732D77;
+  stroke-width: 8;
 }
 .svg-graphic, .svg-profile {
   margin: 10px auto;
