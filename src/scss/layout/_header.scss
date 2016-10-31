@@ -1,0 +1,92 @@
+.header{
+  padding: 10px 10px 0;
+  @include tinted-bg($color-brand-1, .75, '/dist/images/phoneuser-bg.jpg', cover);
+  color: $white;
+  overflow: hidden;
+  &__menu{
+    @include breakpoint($breakpoint-tablet-portrait){
+      padding-left: 20px;
+    }
+  }
+  &__content{
+    text-align: center;
+    > :first-child{
+      @include breakpoint($breakpoint-tablet-portrait){
+        padding: 50px 20px;
+        text-align: left;
+      }
+    }
+  }
+  &__figure{
+    position: relative;
+    bottom: -50px;
+    width: 100%;
+  }
+  &__caption{
+    font-size: 3rem;
+    text-transform: uppercase;
+    line-height: 1.2;
+    @include breakpoint($breakpoint-tablet-landscape){
+      font-size: 4.2rem;
+    }
+    @include breakpoint($breakpoint-laptop){
+      margin: 15px 0;
+      font-size: 5rem;
+    }
+  }
+  &__description{
+    font-size: 2rem;
+    font-weight: lighter;
+    line-height: 1.2;
+    @include breakpoint($breakpoint-laptop){
+      width: 400px;
+      margin: 15px 0 25px;
+      font-size: 2.5rem;
+    }
+  }
+  &__navigation{
+    position: fixed;
+    top: 0;
+    right: -70%;
+    width: 70%;
+    height: 100%;
+    background: $color-brand-3;
+    ul{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    a{
+      display: block;
+      margin: 1px 0;
+      padding: 15px;
+      background: darken($color-brand-3, 5%);
+      color: $white;
+      &:hover{
+        background: darken($color-brand-3, 10%);
+        text-decoration: none;
+      }
+    }
+    @include breakpoint($breakpoint-tablet-portrait){
+      position: absolute;
+      top: 10px;
+      right: 30px;
+      left: auto;
+      width: auto;
+      height: auto;
+      background: transparent;
+      li{
+        display: inline-block;
+        &:not(:last-of-type){
+          a:hover{
+            background: transparent;
+          }
+        }
+      }
+      a{
+        padding: 10px;
+        background: transparent;
+      }
+    }
+  }
+}

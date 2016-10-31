@@ -1,0 +1,11 @@
+.image{
+  &--wide{
+    width: 100%;
+  }
+  &--rounded{
+    border-radius: 50%;
+  }
+  &--curvy{
+    border-radius: 4px;
+  }
+}

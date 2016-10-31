@@ -1,0 +1,72 @@
+/**
+ * Widget:
+ * `.widget` - Widgets are containers that can be used to wrap other components
+ *
+ *   @example
+ *   <div class="widget">
+ *    <div class="widget__content">
+ *      <p>Widget content here</p>
+ *    </div>
+ *   </div>
+ *   <div class="widget">
+ *     <h4 class="widget__title">A widget with title</h4>
+ *     <div class="widget__content">
+ *       <p>Widget content here</p>
+ *     </div>
+ *   </div>
+ *   <div class="widget">
+ *     <h4 class="widget__title">A widget with title and footer</h4>
+ *     <div class="widget__content">
+ *       <p>Widget content here</p>
+ *     </div>
+ *     <footer class="widget__footer">
+ *       <p class="u-txtcenter">Footer content here</p>
+ *     </footer>
+ *   </div>
+ *   <div class="widget widget--themed">
+ *     <h4 class="widget__title">A themed widget with title</h4>
+ *     <div class="widget__content">
+ *       <p>Widget content here</p>
+ *     </div>
+ *   </div>
+ */
+.widget{
+  margin-bottom: 15px;
+  background: $white;
+  box-shadow: 1px 2px 3px rgba($black, .2);
+  &__title{
+    margin: 0;
+    padding: 10px;
+    background: #ccc;
+    color: #888;
+  }
+  &__content{
+    padding: 10px;
+  }
+  &__footer{
+    background: #e8e8e8;
+    h1,h2,h3,h4,h5,h6,p{
+      margin: 0;
+      padding: 5px;
+    }
+  }
+  &--themed{
+    .widget__title{
+      background: $color-brand-3;
+      color: $white;
+    }
+  }
+  // content based behavior
+  &--notifications{
+    @include breakpoint($breakpoint-tablet-portrait){
+      display: none;
+    }
+  }
+  &--dashboard{
+    display: none;
+    @include breakpoint($breakpoint-tablet-portrait){
+      display: block;
+    }
+  }
+}
+

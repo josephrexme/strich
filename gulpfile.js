@@ -1,93 +1,108 @@
-var gulp = require('gulp'),
-    jshint = require('gulp-jshint'),
-    uglify = require('gulp-uglify'),
-    imagemin = require('gulp-imagemin'),
-    imageResize = require('gulp-image-resize'),
-    parallel = require('concurrent-transform'),
-    os = require('os'),
-    htmlmin = require('gulp-htmlmin'),
-    concat = require('gulp-concat'),
-    notify = require('gulp-notify'),
-    cache = require('gulp-cache'),
-    browserSync = require('browser-sync'),
-    reload = browserSync.reload;
+const gulp = require('gulp');
+const gulpLoadPlugins = require('gulp-load-plugins');
+const del = require('del');
+const parallel = require('concurrent-transform');
+const os = require('os');
 
+const $ = gulpLoadPlugins();
+const browserSync = require('browser-sync').create();
+const reload = browserSync.reload;
+const stream = browserSync.stream;
 
-var postcss = require('gulp-postcss');
-var cssImport = require('postcss-import');
-var mixins = require('postcss-mixins');
-var simpleVars = require('postcss-simple-vars');
-var nested = require('postcss-nested');
-var autoprefixer = require('autoprefixer-core');
-var cssnext = require('gulp-cssnext');
-var mqpacker = require('css-mqpacker');
-var cssnano = require('cssnano');
-var sourcemaps = require('gulp-sourcemaps');
+const paths = {
+  source: {
+    scripts: [
+      'vendor/assets/components/smooth-scroll/smooth-scroll.js',
+      'src/js/**/*.js'
+    ],
+    styles: [
+      'vendor/assets/components/aos/dist/aos.css',
+      'src/scss/**/*.scss'
+    ],
+    images: [
+      'src/images/**/*.*'
+    ],
+    templates: ['*.html']
+  },
+  target: {
+    all:     'dist/**/*',
+    scripts: 'dist/js',
+    styles: 'dist/css',
+    images: 'dist/images',
+    sourcemaps: './maps',
+  }
+};
 
-gulp.task('css', function(){
-  var processors = [
-    cssImport,
-    mixins,
-    simpleVars,
-    nested,
-    autoprefixer({browsers: ['last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4']}),
-    mqpacker,
-    cssnano
-  ];
-  return gulp.src('./src/css/*.css')
-    .pipe(cssnext({compress: true }))
-    .pipe(postcss(processors))
-    .pipe(gulp.dest('./dist/css'));
+gulp.task('clean', () => del.sync([paths.target.all]) );
 
+gulp.task('styles', () => {
+  gulp.src(paths.source.styles)
+    .pipe($.plumber())
+    .pipe($.sourcemaps.init())
+    .pipe($.sass({outputStyle: 'compressed'}).on('error', $.sass.logError))
+    .pipe($.concat('bundle.css'))
+    .pipe($.autoprefixer({browsers: ['last 2 versions', '> 1%', 'Firefox ESR']}))
+    .pipe($.cssnano())
+    .pipe($.sourcemaps.write(paths.target.sourcemaps))
+    .pipe(gulp.dest(paths.target.styles))
+    .pipe(stream());
 });
 
-// Static server
-gulp.task('browser-sync', function(){
-  browserSync({
+gulp.task('scripts', () => {
+  gulp.src(paths.source.scripts)
+    .pipe($.plumber())
+    .pipe($.sourcemaps.init())
+    .pipe($.concat('app.js'))
+    .pipe($.babel())
+    .pipe($.uglify())
+    .pipe($.sourcemaps.write(paths.target.sourcemaps))
+    .pipe(gulp.dest(paths.target.scripts))
+    .pipe(stream());
+});
+
+gulp.task('images', () => {
+  gulp.src(paths.source.images)
+    .pipe(gulp.dest(paths.target.images));
+});
+
+gulp.task('optimizedImages', () => {
+  gulp.src(paths.source.images)
+    // .pipe(parallel(
+    //   $.imageResize({ width: 600 }),
+    //   os.cpus().length
+    // ))
+    .pipe($.cache(
+      $.imagemin({
+        optimizationLevel: 3,
+        progressive: true,
+        interlaced: true,
+        // Keep IDs in SVG
+        svgoPlugins: [{cleanupIDs: false}]
+      })
+    ))
+    .pipe(gulp.dest(paths.target.images));
+});
+
+gulp.task('serve', ['styles', 'scripts'], () => {
+  browserSync.init({
     server: {
-      baseDir: "./"
+      baseDir: ".",
+      routes: {
+        '/styleguide': 'dist/styleguides.html'
+      }
     }
   });
+
+  gulp.watch(paths.source.styles, ['styles']);
+  gulp.watch(paths.source.scripts, ['scripts']);
+  gulp.watch(paths.source.templates).on('change', reload);
 });
 
-// Concatenate & Minify
-gulp.task('scripts', function(){
-  return gulp.src('./src/js/*.js')
-    .pipe(sourcemaps.init())
-    .pipe(concat('app.js'))
-    .pipe(gulp.dest('dist/js'))
-    .pipe(uglify())
-    .pipe(sourcemaps.write('../maps'))
-    .pipe(gulp.dest('dist/js'))
-    .pipe(reload({stream:true}));
+gulp.task('build', ['clean', 'scripts', 'styles', 'images'], () => {
+  return gulp.src(paths.target.all).pipe($.size({
+    title: 'build',
+    pretty: true
+  }))
 });
 
-// Images
-gulp.task('images', function(){
-  return gulp.src('./src/images/**/*')
-    .pipe(parallel(
-      imageResize({ width: 600 })
-    ))
-    .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
-    .pipe(gulp.dest('dist/images'))
-    .pipe(notify({ message: 'Images task complete' }));
-});
-
-// HTML
-gulp.task('html', function(){
-  return gulp.src('src/*.html')
-    .pipe(htmlmin({collapseWhitespace: true}))
-    .pipe(gulp.dest('./'))
-});
-
-// Watch
-gulp.task('watch', function(){
-  gulp.watch('./src/**/*.css', ['css', browserSync.reload]);
-  
-  gulp.watch('./src/**/*.js', ['scripts', browserSync.reload]);
-
-  gulp.watch(['*.html','./src/*.html'], ['html', browserSync.reload]);
-});
-
-
-gulp.task('default', ['css', 'browser-sync', 'html', 'scripts', 'watch']);
+gulp.task('default', ['scripts', 'styles', 'images', 'serve']);

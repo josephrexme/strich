@@ -1,0 +1,33 @@
+/*---------------------------------*\
+  State Rules (is- and has- namespace)
+  - Rule
+  State based class need higher
+  specifity to override the
+  default states. !important is
+  allowed but should be avoided
+  where possible. Consider class
+  chaining before considering it.
+\*---------------------------------*/
+.is{
+  &-dashboard-sidebar__nav-active.is-dashboard-sidebar__nav-active{
+    @include breakpoint($breakpoint-tablet-portrait){
+      border-left: solid 2px $color-brand-4;
+    }
+  }
+  &-pagination-disabled{
+    a{
+      background: #ddd;
+      cursor: default;
+    }
+  }
+  &-pagination-current{
+    a{
+      background: #0c60ee;
+      color: $white;
+      cursor: default;
+    }
+  }
+}
+.has{
+
+}

@@ -1,0 +1,143 @@
+$sidebar-width: 250px;
+.dashboard{
+  background: #eee;
+  &-sidebar{
+    background: $color-brand-5;
+    &__header{
+      padding: 10px;
+      background: $color-brand-2;
+      text-align: center;
+      .logo > span{
+        color: $white;
+      }
+      @include breakpoint($breakpoint-tablet-portrait){
+        padding: 20px;
+      }
+    }
+    &__nav{
+      font-size: 1.4rem;
+      a{
+        display: block;
+        float: left;
+        width: 50%;
+        padding: 10px;
+        color: rgba($white, .6);
+        border-top: solid thin rgba($white, .1);
+        &:hover{
+          background: lighten($color-brand-5, 5%);
+          text-decoration: none;
+        }
+        &:nth-of-type(odd){
+          border-right: solid thin rgba($white, .1);
+        }
+      }
+      .icon{
+        margin-right: 10px;
+      }
+      @include breakpoint($breakpoint-tablet-portrait){
+        margin-top: 10px;
+        a{
+          float: none;
+          width: auto;
+          border: none;
+          border-bottom: solid thin rgba($white, .1);
+          padding: 20px;
+        }
+      }
+    }
+    @include breakpoint($breakpoint-tablet-portrait){
+      position: fixed;
+      width: $sidebar-width;
+      height: 100%;
+    }
+  }
+  &-main{
+    height: 100vh;
+    &__header{
+      height: 85px;
+      padding: 15px;
+      background: $white;
+      h1{
+        margin: 0;
+        font-weight: lighter;
+      }
+    }
+    &__widgets{
+      padding: 20px;
+    }
+    &__ctrl{
+      margin: 6px 0;
+      padding: 0;
+      list-style-type: none;
+      font-size: 1.4rem;
+      color: #888;
+      >li{
+        position: relative;
+        display: inline-block;
+        &:first-child, &:last-child{
+          display: none;
+          @include breakpoint($breakpoint-tablet-portrait){
+            display: inline-block;
+          }
+        }
+        &:not(:first-child){
+          margin-left: 10px;
+        }
+      }
+      .image{
+        width: 35px;
+        height: 35px;
+      }
+      &__count{
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        width: 15px;
+        height: 15px;
+        padding: 1.2px;
+        border-radius: 50%;
+        background: $color-brand-4;
+        color: $white;
+        text-align: center;
+        font-size: .8rem;
+        &:empty{ display: none; }
+      }
+      &__dropdown{
+        position: absolute;
+        display: none;
+        top: 35px;
+        left: -90px;
+        z-index: 999;
+        list-style-type: none;
+        width: 200px;
+        margin: 0;
+        padding: 0;
+        border: solid thin #ddd;
+        border-radius: 4px;
+        background: $white;
+        box-shadow: 0 0 2px #bbb;
+        &::before{
+          content: '';
+          position: absolute;
+          top: -8px;
+          left: 0;
+          right: 0;
+          width: 15px;
+          height: 15px;
+          margin: 0 auto;
+          background: $white;;
+          border-top: solid thin #ddd;
+          border-left: solid thin #ddd;
+          transform: rotate(45deg);
+        }
+        > li{
+          padding: 10px;
+          border-bottom: solid thin #ddd;
+        }
+      }
+    }
+    @include breakpoint($breakpoint-tablet-portrait){
+      padding-left: $sidebar-width;
+    }
+  }
+}

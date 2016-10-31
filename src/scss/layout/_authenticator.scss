@@ -1,0 +1,71 @@
+.authenticator{
+  height: 100vh;
+  padding: 100px 10px;
+  background: $color-brand-1;
+  &__logo{
+    margin: 30px 0;
+    text-align: center;
+  }
+  &__box{
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    background: $white;
+    &__header{
+      height: 70px;
+      color: $white;
+      overflow-y: hidden;
+    }
+    &__title, &__alt{
+      float: left;
+    }
+    &__title{
+      background: $color-brand-2;
+      width: 60%;
+      padding: 15px;
+      font-size: 2.5rem;
+    }
+    &__alt{
+      display: block;
+      width: 40%;
+      padding: 26px 20px;
+      background: $color-brand-3;
+      color: inherit;
+      font-size: 1.2rem;
+      text-align: center;
+      text-transform: uppercase;
+      &:hover{
+        background: lighten($color-brand-3, 5%);
+        text-decoration: none;
+      }
+    }
+  }
+  &__playground{
+    margin-top: 10px;
+    font-size: 1.4rem;
+    color: $color-brand-3;
+    p{
+      margin: 0 0 10px;
+    }
+    .button{
+      margin-bottom: 15px;
+    }
+  }
+  &__socials{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    li{
+      display: inline-block;
+    }
+    a{
+      display: block;
+      width: 4rem;
+      height: 4rem;
+      padding: 5px;
+      border: solid 2px $color-brand-2;
+      border-radius: 50%;
+      text-align: center;
+    }
+  }
+}

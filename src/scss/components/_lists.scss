@@ -1,0 +1,28 @@
+/**
+ * List:
+ * `.list` - Lists are used for enlisting items
+ *
+ *   @example
+ *   <ul class="list">
+ *     <li><p>This is awesome</p></li>
+ *     <li><p>That is awesome</p></li>
+ *     <li><p>Those are awesome</p></li>
+ *   </ul>
+ */
+
+.list{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  border: solid thin #ccc;
+  border-radius: 4px;
+  li{
+    &:not(:last-of-type){
+      border-bottom: solid thin #ccc;
+    }
+  }
+  p{
+    margin: 0;
+    padding: 10px;
+  }
+}

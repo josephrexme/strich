@@ -1,0 +1,62 @@
+.section{
+  padding: 30px;
+  @include breakpoint($breakpoint-laptop){
+    padding: 30px 60px;
+  }
+  &__title{
+    text-transform: uppercase;
+    font-size: 2.5rem;
+  }
+  &--features{
+    background: $color-brand-3;
+    color: $white;
+    text-align: center;
+    &__icon{
+      width: 150px;
+      height: 150px;
+      margin: 0 auto;
+      padding: 50px 40px;
+      border-radius: 50%;
+      background: $color-brand-2;
+      svg{
+        width: 60px;
+        height: 60px;
+      }
+    }
+    &__name{
+      text-transform: uppercase;
+    }
+  }
+  &--how{
+    &__content{
+      .image{
+        position: relative;
+        left: -150px;
+        width: 120%;
+      }
+    }
+  }
+  &--pricing{
+    background: $color-brand-5;
+    color: $white;
+    text-align: center;
+  }
+  &--testimonial{
+    .section__title{ text-align: center; }
+    .image{ width: 100px; height: 100px; }
+    &__content{
+      width: 100%;
+      max-width: 650px;
+      margin: 50px auto;
+    }
+    &__entity{
+      margin: 0 0 5px;
+      color: #999;
+      text-transform: uppercase;
+    }
+    &__testimony{
+      margin: 5px 0;
+      font-size: 1.4rem;
+    }
+  }
+}

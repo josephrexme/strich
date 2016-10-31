@@ -1,0 +1,23 @@
+{
+  "name": "strich",
+  "description": "Strich portfolio website",
+  "main": "gulpfile.js",
+  "authors": [
+    "Joseph Rex"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "strich",
+    "portfolio"
+  ],
+  "homepage": "http://strich.io",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/components",
+    "test",
+    "tests"
+  ]
+}

@@ -1,0 +1,25 @@
+.pricing{
+  padding: 5px 0 10px;
+  background: $white;
+  color: #222;
+  &__name{
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+  &__amount{
+    padding: 10px;
+    background: darken($white, 10%);
+    h2{
+      font-size: 4.5rem;
+    }
+  }
+  &__features{
+    list-style-type: none;
+    margin: 10px 0 0;
+    padding: 0;
+    li{
+      margin-bottom: 2px;
+      padding: 10px;
+    }
+  }
+}

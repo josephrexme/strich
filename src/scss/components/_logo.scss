@@ -1,0 +1,10 @@
+.logo{
+  font-size: 2.8rem;
+  color: $white;
+  span{
+    color: $color-brand-4;
+  }
+  &:hover{
+    text-decoration: none;
+  }
+}
